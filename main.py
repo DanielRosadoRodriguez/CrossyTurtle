@@ -26,7 +26,7 @@ while game_is_on:
         car_manager.create_car()
     for car in car_manager.all_cars:
         if player.distance(car) < 20:
-            print("game over")
+            scoreboard.print_game_over()
             game_is_on = False
             break
     if player.ycor() > 250:
