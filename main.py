@@ -22,14 +22,17 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     car_manager.move_car()
-    if cont % 10 == 0:
-        car_manager.create_car()
+    car_manager.create_car()
     for car in car_manager.all_cars:
         if player.distance(car) < 20:
             scoreboard.print_game_over()
             game_is_on = False
             break
-    if player.ycor() > 250:
+    if player.ycor() > 250 and scoreboard.level != 5:
         scoreboard.update_scoreboard()
         player.reset_positon()
+        car_manager.reduce_max_chance()
+        if scoreboard.level == 5:
+            scoreboard.print_you_win()
+            game_is_on = False
 screen.exitonclick()
