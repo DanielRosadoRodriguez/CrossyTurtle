@@ -21,3 +21,7 @@ class Scoreboard(Turtle):
     def print_game_over(self):
         self.goto(0, 0)
         self.write(arg="Game Over", font=FONT)
+
+    def print_you_win(self):
+        self.goto(0, 0)
+        self.write(arg="You Win!", font=FONT)
